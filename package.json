@@ -17,7 +17,8 @@
     "node-sass": "^6.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.3.1",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

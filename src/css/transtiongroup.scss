@@ -1,0 +1,64 @@
+.item{
+    &-enter, &-appear {
+        opacity: 0;
+    }
+    &-enter-active, &-appear-active {
+        opacity: 1;
+        transition: opacity 300ms ease-in;
+    }
+     &-enter-done {
+        opacity:1; 
+    }
+    &-exit {
+        opacity:1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transition: opacity 300ms ease-in;
+    }
+}
+
+.calltransition{
+    &-enter, &-appear {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    &-enter-active, &-appear-active {
+        opacity: 1;
+        transform: translateX(0%);
+        transition: all 300ms ease-in;
+    }
+     &-enter-done {
+        opacity:1; 
+    }
+    &-exit {
+        transform: translateX(0%);
+        opacity:1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 300ms ease-in;
+    }
+}
+
+
+.fade-enter{
+    opacity: 0;
+    transform: translateX(-100%);
+ }
+ .fade-exit{
+    opacity: 1;
+    transform: translateX(100%);
+ }
+ .fade-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+ }
+ .fade-exit-active{
+    opacity: 0;
+ }
+ .fade-enter-active,
+ .fade-exit-active{
+    transition: all 500ms;
+ }

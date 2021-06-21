@@ -1,0 +1,16 @@
+.eachcall{
+    border-radius: 100px;
+    background-color: cornsilk;
+    margin: 15px 15px 15px 15px;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    .notchecked{
+        grid-column: 1 /span 4;
+    }
+    .checked{
+        text-align: center;
+    }
+}

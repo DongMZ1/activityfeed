@@ -8,8 +8,27 @@ html, body, h1, h2, h3, ul, li {
 
 body {
   background: #233142;
-  font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
+  font-family: 'Antic Slab', arial, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
   color: #333333;
   line-height: 1;
+}
+::-webkit-scrollbar-track
+{
+	border: 1px solid black;
+  border-radius: 50px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 50px;
+	background-color:	#32CD32;	
 }
