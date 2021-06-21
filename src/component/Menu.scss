@@ -1,0 +1,12 @@
+.menu{
+    display: flex;
+    font-size: 20px;
+    font-family: 'Akaya Kanadaka';
+    justify-content: space-around;
+    padding: 0px 10px 10px 10px;
+    border-bottom: solid 1px brown;
+    >*{
+        cursor: pointer;
+        text-align: center;
+    }
+}
