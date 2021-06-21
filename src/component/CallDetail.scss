@@ -1,1 +1,14 @@
-
+.calldetail{
+    position: relative;
+    height:500px;
+    font-size: 17px;
+    line-height: 140%;
+    font-weight: 300;
+    .closedetailIcon{
+        font-size: 50px;
+        right: 0px;
+        position: absolute;
+        cursor: pointer;
+        user-select: none;
+    }
+}

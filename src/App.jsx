@@ -5,6 +5,9 @@ import "regenerator-runtime/runtime";
 import Header from './Header.jsx';
 import Menu from './component/Menu'
 import ActivityFeed from './component/ActivityFeed.js';
+import CallDetail from './component/CallDetail.js';
+import Footer from './component/Footer';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 const App = () => {
 
@@ -15,7 +18,7 @@ const App = () => {
   const [allcalls, setallcalls] = useState([]);
 
   //information pass to detail of a all 
-  const [detailedcall, setdetailedcall] = useState();
+  const [detailedcallcontent, setdetailedcallcontent] = useState();
 
   //show detail or activityfeed
   const [showdetail, setshowdetail] = useState(false);
@@ -48,12 +51,23 @@ const App = () => {
     <div className='container'>
       <Header/>
       <div className="container-view">
-      {showdetail? 'hello' :
+        {/**----------------------show detail is a boolean true === activity feed // false detail of specific call */}
+        <SwitchTransition>
+          <CSSTransition key={showdetail ? "hi!" : "Hello!"}
+       addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+       classNames='calltransition'>
+        {showdetail?
+          <CallDetail detailedcallcontent={detailedcallcontent} setshowdetail={setshowdetail} />
+         :
         <React.Fragment>
           <Menu fetchdata={fetchdata} isinbox={isinbox} setisinbox={setisinbox} />
-          <ActivityFeed setshowdetail={setshowdetail} fetchdata={fetchdata} isinbox={isinbox}  allcalls={allcalls} />
+          <ActivityFeed setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} isinbox={isinbox}  allcalls={allcalls} />
         </React.Fragment>
-      }
+        }
+          </CSSTransition>
+        </SwitchTransition>
+        
+      <Footer numberofunread={(allcalls.filter(eachcall => eachcall.is_archived === false).length)} />
       </div>
     </div>
   );

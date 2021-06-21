@@ -1,0 +1,25 @@
+.footer{
+    height:65px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: darkred 2px solid;
+    .callicon{
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top:0px;
+        right: 0px;
+        border-radius: 50%;
+        background-color: red;
+        padding: 2px;
+    }
+    >div{
+        font-size: 25px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+

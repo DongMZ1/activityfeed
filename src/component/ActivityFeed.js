@@ -3,17 +3,33 @@ import Calls from './Calls'
 import {BsArchive} from 'react-icons/bs'
 import { CSSTransition, SwitchTransition, TransitionGroup } from 'react-transition-group';
 
-const ActivityFeed = ({isinbox, allcalls, fetchdata, setshowdetail}) =>{
+const ActivityFeed = ({isinbox, allcalls, fetchdata, setshowdetail, setdetailedcallcontent}) =>{
+    const updateallcalls = async () =>{
+        allcalls.forEach(async(eachcall) => {
+            const res = await fetch(`https://aircall-job.herokuapp.com/activities/${eachcall.id}`, {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(
+                {
+                    is_archived: true
+                  }
+            ),
+        });
+        });
+        fetchdata();
+    }
     return <div className='activityfeed'>
 
         <CSSTransition appear in={isinbox} classNames='item' unmountOnExit timeout={300} > 
-         <div className='archiveallcalls'>
+         <div className='archiveallcalls' onClick={updateallcalls}>
             <BsArchive fontSize='12px' /> <span style={{fontSize:'15px'}}>Archive all calls</span>
          </div>
         </CSSTransition>
       
-     {isinbox && <Calls setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))} />}
-     {!isinbox && <Calls setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={allcalls} />}
+     {isinbox && <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))} />}
+     {!isinbox && <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={allcalls} />}
 
     </div>
 }
