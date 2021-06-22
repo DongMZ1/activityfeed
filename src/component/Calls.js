@@ -4,8 +4,8 @@ import {IoMdMailUnread} from 'react-icons/io';
 import {VscMailRead} from 'react-icons/vsc'
 import {BiTimeFive} from 'react-icons/bi'
 import { CSSTransition, SwitchTransition, TransitionGroup } from 'react-transition-group';
-const ActivityFeed = ({allcalls, fetchdata, setshowdetail, setdetailedcallcontent}) =>{
-   if(!allcalls) return <div style={{display:'flex', height:'400px'}}>
+const ActivityFeed = ({allcalls, fetchdata, setshowdetail, setdetailedcallcontent, loading}) =>{
+   if(loading) return <div style={{display:'flex', height:'400px'}}>
        <h2 style={{margin:'auto'}}> Loading...</h2>
    </div>
    return <div className='allcalls'> 

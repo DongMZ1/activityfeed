@@ -61,12 +61,13 @@ const App = () => {
          :
         <React.Fragment>
           <Menu fetchdata={fetchdata} isinbox={isinbox} setisinbox={setisinbox} />
-          <ActivityFeed setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} isinbox={isinbox}  allcalls={allcalls} />
+          <ActivityFeed
+          setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail}
+          fetchdata={fetchdata} isinbox={isinbox}  allcalls={allcalls} />
         </React.Fragment>
         }
           </CSSTransition>
         </SwitchTransition>
-        
       <Footer numberofunread={(allcalls.filter(eachcall => eachcall.is_archived === false).length)} />
       </div>
     </div>

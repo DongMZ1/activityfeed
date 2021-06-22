@@ -32,9 +32,17 @@ const ActivityFeed = ({isinbox, allcalls, fetchdata, setshowdetail, setdetailedc
        </div>
       <Calls setdetailedcallcontent={setdetailedcallcontent}
        setshowdetail={setshowdetail} fetchdata={fetchdata} 
-       allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))} />
+       allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))}
+       loading ={allcalls.length===0}
+       />
        </React.Fragment>
-      : <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={allcalls} />}
+
+      : 
+      
+      <Calls setdetailedcallcontent={setdetailedcallcontent} 
+      setshowdetail={setshowdetail} fetchdata={fetchdata}
+      loading ={allcalls.length===0}
+       allcalls={allcalls} />}
      </CSSTransition>
      </SwitchTransition>
     </div>
