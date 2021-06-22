@@ -21,16 +21,22 @@ const ActivityFeed = ({isinbox, allcalls, fetchdata, setshowdetail, setdetailedc
         fetchdata();
     }
     return <div className='activityfeed'>
-
-        <CSSTransition appear in={isinbox} classNames='item' unmountOnExit timeout={300} > 
-         <div className='archiveallcalls' onClick={updateallcalls}>
-            <BsArchive fontSize='12px' /> <span style={{fontSize:'15px'}}>Archive all calls</span>
-         </div>
-        </CSSTransition>
-      
-     {isinbox && <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))} />}
-     {!isinbox && <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={allcalls} />}
-
+    <SwitchTransition>
+        <CSSTransition key={isinbox ? "hi!" : "Hello!"}
+       addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+        classNames='item' timeout={300} > 
+      {isinbox ? 
+       <React.Fragment>
+        <div className='archiveallcalls' onClick={updateallcalls}>
+      <BsArchive fontSize='12px' /> <span style={{fontSize:'15px'}}>Archive all calls</span>
+       </div>
+      <Calls setdetailedcallcontent={setdetailedcallcontent}
+       setshowdetail={setshowdetail} fetchdata={fetchdata} 
+       allcalls={(allcalls.filter(eachcall => eachcall.is_archived === false))} />
+       </React.Fragment>
+      : <Calls setdetailedcallcontent={setdetailedcallcontent} setshowdetail={setshowdetail} fetchdata={fetchdata} allcalls={allcalls} />}
+     </CSSTransition>
+     </SwitchTransition>
     </div>
 }
 
