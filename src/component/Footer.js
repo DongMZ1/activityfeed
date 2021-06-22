@@ -6,9 +6,9 @@ import {GrApps} from 'react-icons/gr'
 const Footer = ({numberofunread}) =>{
     return <div className='footer'>
           <div style={{position:'relative'}}><MdCall /><span className='callicon'>{numberofunread}</span></div>
-          <div><BsFillPersonLinesFill /></div>
-          <div><GrApps /></div>
-          <div><AiFillSetting /></div>
+          <div style={{color:'grey'}}><BsFillPersonLinesFill /></div>
+          <div style={{color:'grey'}}><GrApps /></div>
+          <div style={{color:'grey'}}><AiFillSetting /></div>
     </div>
 }
 
