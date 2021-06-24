@@ -6,7 +6,7 @@ const Menu = ({isinbox, setisinbox, fetchdata}) =>{
 
     const resetdata = async () =>{
         const res = await fetch('https://aircall-job.herokuapp.com/reset');
-        fetchdata();
+        await fetchdata();
     }
     
     return<div className='menu'>

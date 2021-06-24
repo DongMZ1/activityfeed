@@ -33,7 +33,7 @@ const Eachcall = ({eachcall, fetchdata, setshowdetail, setdetailedcallcontent}) 
                   }
             ),
         })
-        fetchdata();
+       await fetchdata();
     }
 
     const date = eachcall.created_at.substring(0, 10);
@@ -43,7 +43,7 @@ const Eachcall = ({eachcall, fetchdata, setshowdetail, setdetailedcallcontent}) 
         const res = await fetch(`https://aircall-job.herokuapp.com/activities/${eachcall.id}`);
         const responsedata = await res.json();
         setdetailedcallcontent(responsedata);
-        updatecall();
+        await updatecall();
         setshowdetail(state => !state);
     }
 

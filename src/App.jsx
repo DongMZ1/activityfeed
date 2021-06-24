@@ -23,14 +23,12 @@ const App = () => {
   //show detail or activityfeed
   const [showdetail, setshowdetail] = useState(false);
   
-  const fetchdata = () =>{
-    return async ()=>{ 
+  const fetchdata = async () =>{ 
       const response = await fetch('https://aircall-job.herokuapp.com/activities', {
         method:'GET'
       });
       const responsedata = await response.json();
       setallcalls(responsedata);
-  }
     }
   
   useEffect( () =>{
