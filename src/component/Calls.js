@@ -33,7 +33,7 @@ const Eachcall = ({eachcall, fetchdata, setshowdetail, setdetailedcallcontent}) 
                   }
             ),
         })
-       await fetchdata();
+       fetchdata();
     }
 
     const date = eachcall.created_at.substring(0, 10);
