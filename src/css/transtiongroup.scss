@@ -21,7 +21,7 @@
 .calltransition{
     &-enter, &-appear {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(100%);
     }
     &-enter-active, &-appear-active {
         opacity: 1;
