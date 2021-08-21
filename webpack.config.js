@@ -25,6 +25,7 @@ module.exports = {
       }
     ]
   },
+  stats: { children: false },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html",
